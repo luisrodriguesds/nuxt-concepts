@@ -5,6 +5,7 @@
         <NuxtLink :to="{name: 'company'}">A empresa</NuxtLink>
         <NuxtLink to="/services">Serviços</NuxtLink>
         <NuxtLink to="/products">Produtos</NuxtLink>
+        <NuxtLink to="/login">Login</NuxtLink>
       </div>
     </div>
     <div>

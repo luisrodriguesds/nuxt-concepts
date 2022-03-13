@@ -11,12 +11,31 @@
       reiciendis odit incidunt sed sit quaerat sequi, facilis obcaecati est
       earum.
     </p>
+    <div>
+      <ul>
+        <li v-for="(product, index) in products" :key="product.id" class="border-b border-gray-400 py-3">
+         {{index + 1}} - {{product.title}}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "products",
+  data(){
+    return {}
+  },
+  async asyncData({ $axios }){
+    // Não tem acesso ao THIS!!!!!!!!!!!!!
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
+    const products = await $axios.$get('https://jsonplaceholder.typicode.com/posts?_limit=3')
+    console.log(products)
+    return {
+      products
+    }
+  }
 };
 </script>
 
